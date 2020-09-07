@@ -16,7 +16,7 @@ public class Test1 {
     @Test
     public void test1() {
         Iterable<String> split = Splitter.on(",").split("1,2,3,4,5");
-        split.forEach(str -> System.out.println(str));
+        split.forEach(System.out::println);
 
     }
 
@@ -161,6 +161,19 @@ public class Test1 {
 
         System.out.println(biMap);//{1=hello, 2=my, 3=world, 4=honey}
         System.out.println(inverseMap);//{hello=1, my=2, world=3, honey=4}
+    }
+
+    @Test
+    public void test(){
+        Table<String, Integer, String> table = HashBasedTable.create();
+        table.put("湖北", 18,"Allen");
+        table.put("湖北", 20,"Tom");
+        table.put("湖北", 22,"John");
+        table.put("湖南", 16,"Jerry");
+        table.put("湖南", 19,"Mark");
+        System.out.println(table.rowMap());
+        table.rowMap().remove("湖北");
+        System.out.println(table.rowMap());
     }
 
 
